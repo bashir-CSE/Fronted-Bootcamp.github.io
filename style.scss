@@ -7,21 +7,19 @@
 body {
 	font-family: "Josefin Sans", sans-serif !important;
 	position: relative;
+	overflow-x: hidden;
 }
-.hero-section,
-.Card3,
+
 .learnFundamentals,
 .learnReact,
 .FAQ,
 .team,
 .contact {
-	height: 100vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 nav {
-	padding: 0 6rem;
 	width: 100vw !important;
 	.navbar-toggler {
 		color: white !important;
@@ -31,11 +29,23 @@ nav {
 		}
 	}
 }
-.hero-section{
-	max-height: 80vh !important;
-}
-.newslatter{
-	max-height: 20vh !important;
+.hero-section {
+	height: 92vh !important;
+	.leftImg {
+		@keyframes zoom-in-zoom-out {
+			0% {
+				transform: scale(1, 1) rotate(-2deg);
+			}
+			50% {
+				transform: scale(1.1, 1.1) rotate(2deg);
+			}
+			100% {
+				transform: scale(1, 1) rotate(-2deg);
+			}
+		}
+		animation: zoom-in-zoom-out 5s linear infinite alternate;
+		overflow: hidden;
+	}
 }
 
 .map {
@@ -94,16 +104,13 @@ nav {
 	}
 	// learn fundamentals
 }
-@mixin imgNone {
-	display: none !important;
-}
+
 @media (max-width: 768.98px) {
 	.learnFundamentals,
 	.learnReact,
 	.hero-section {
-		padding-top: 0 !important;
 		img {
-			@include imgNone;
+			margin-top: 2rem;
 		}
 	}
 	.learnReact {
